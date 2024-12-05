@@ -42,9 +42,7 @@ export class DetailsComponent {
     this.championsService.getChampionsById(id, token).subscribe({
       next: (response) => {
         response && (this.champions = response)
-        console.log(this.champions.id)
         this.skins = response.skins || [];
-        console.log(this.skins)
       }
     })
   }
