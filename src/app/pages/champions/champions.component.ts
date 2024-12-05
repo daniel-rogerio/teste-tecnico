@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIcon } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 export interface PeriodicElement {
   icon: number;
@@ -55,7 +56,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatTableModule,
     MatIcon,
     MatPaginatorModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ],
   templateUrl: './champions.component.html',
   styleUrl: './champions.component.scss',
