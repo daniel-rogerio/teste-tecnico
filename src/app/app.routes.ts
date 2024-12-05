@@ -9,6 +9,6 @@ export const routes: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'champions', component: ChampionsComponent, canActivate: [AuthGuard]},
-    {path: 'details', component: DetailsComponent, canActivate: [AuthGuard]},
-    {path: '', redirectTo: 'home', pathMatch: 'full'}
+    {path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard]},
+    {path: '', redirectTo: 'champions', pathMatch: 'full'}
 ];
