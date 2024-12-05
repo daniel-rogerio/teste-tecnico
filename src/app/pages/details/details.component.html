@@ -1,20 +1,42 @@
 <app-header></app-header>
 <div class="container">
-  <mat-card appearance="outlined" class="champion-card">
-    <mat-card-header>
-      <mat-card-title>Aatrox</mat-card-title>
-      <mat-card-subtitle>The Darkin Blade</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="">
-    <mat-card-content>
-      <p>
-        Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, 
-        and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find freedom once more, 
-        corrupting and transforming those foolish enough to try and wield the magical weapon that contained his essence. Now, with stolen flesh, 
-        he walks Runeterra in a brutal approximation of his previous form, seeking an apocalyptic and long overdue vengeance.","blurb":"Once honored defenders 
-        of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. 
-        But after centuries of imprisonment, Aatrox was the first to find...
-      </p>
-    </mat-card-content>
-  </mat-card>
+  <div class="champion-container">
+    <!-- Card de detalhes do campeão -->
+    <mat-card class="champion-details" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Aatrox</mat-card-title>
+        <mat-card-subtitle>The Darkin Blade</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="">
+      <mat-card-content>
+        <p>
+          Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, 
+          and were defeated only by cunning mortal sorcery. But after centuries of imprisonment, Aatrox was the first to find freedom once more, 
+          corrupting and transforming those foolish enough to try and wield the magical weapon that contained his essence. Now, with stolen flesh, 
+          he walks Runeterra in a brutal approximation of his previous form, seeking an apocalyptic and long overdue vengeance.","blurb":"Once honored defenders 
+          of Shurima against the Void, Aatrox and his brethren would eventually become an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. 
+          But after centuries of imprisonment, Aatrox was the first to find...
+        </p>
+      </mat-card-content>
+    </mat-card>
+    
+    <!-- Card de skins do campeão -->
+    <mat-card class="champion-skins" appearance="outlined">
+      <mat-card-header class="skins-title">
+        <mat-card-title>Skins do Campeão</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="skins-content">
+        <div class="skins-container">
+          <app-card-champion-skin></app-card-champion-skin>
+          <app-card-champion-skin></app-card-champion-skin>
+          <app-card-champion-skin></app-card-champion-skin>
+          <app-card-champion-skin></app-card-champion-skin>
+          <app-card-champion-skin></app-card-champion-skin>
+          <app-card-champion-skin></app-card-champion-skin>
+          <app-card-champion-skin></app-card-champion-skin>
+          <app-card-champion-skin></app-card-champion-skin>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
