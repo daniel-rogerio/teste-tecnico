@@ -27,7 +27,11 @@
             <input matInput type="password" formControlName="password">
           </mat-form-field>
           <mat-card-actions>
-            <button mat-flat-button [disabled]="!this.registerForm.valid">Cadastrar</button>
+            @if (!this.registerForm.valid) {
+              <button mat-flat-button disabled class="btn-color-disabled">Cadastrar</button>
+            } @else {
+              <button mat-flat-button class="btn-color">Cadastrar</button>
+            }
             <p>Já possui conta? <a routerLink="/login">Conecte-se!</a></p>
           </mat-card-actions>
         </form>
