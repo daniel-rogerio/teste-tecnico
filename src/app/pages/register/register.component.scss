@@ -3,7 +3,7 @@
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 100vmin;
+	height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -47,4 +47,11 @@ mat-card-actions button {
 
 mat-card-actions a {
 	color: rgb(40, 120, 180);
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 100vw;
+    left: 0;
+  }
 }
