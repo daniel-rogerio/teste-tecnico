@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatIcon } from '@angular/material/icon';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -44,6 +44,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {icon: 25, name: 'Neon', title: 20.1797, info: 'Ne'},
 ];
 
+export function changePaginatorLanguage() {
+  const paginator = new MatPaginatorIntl();
+  paginator.itemsPerPageLabel = 'Itens por página:';
+  paginator.nextPageLabel = 'Próxima página';
+  paginator.previousPageLabel = 'Página anterior';
+  return paginator;
+}
+
 @Component({
   selector: 'app-champions',
   imports: [
@@ -58,6 +66,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
     MatPaginatorModule,
     MatButtonModule,
     MatTooltipModule
+  ],
+  providers: [
+    {
+      provide: MatPaginatorIntl,
+      useValue: changePaginatorLanguage()
+    }
   ],
   templateUrl: './champions.component.html',
   styleUrl: './champions.component.scss',
