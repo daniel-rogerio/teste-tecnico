@@ -40,9 +40,14 @@
     justify-content: space-between;
   }
   
-  mat-card-actions button {
+  .mdc-button.btn-color {
     background-color: rgb(233, 154, 53);
     color: rgb(0, 0, 0);
+  }
+
+  .mdc-button.btn-color-disabled {
+    background-color: rgb(223, 222, 226);
+    color: rgb(176, 175, 180);
   }
   
   mat-card-actions a {
