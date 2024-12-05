@@ -3,10 +3,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { SingUpUserRequest } from '../../interfaces/user/SingUpUserRequest';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +20,8 @@ import { SingUpUserRequest } from '../../interfaces/user/SingUpUserRequest';
     MatButtonModule,
     RouterLink,
     ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
@@ -32,6 +36,7 @@ export class RegisterComponent {
     password: ['', Validators.required]
   })
   private userService: UserService = inject(UserService);
+  private router: Router = inject(Router);
 
   onSubmitRegisterForm(): void {
     if (this.registerForm.value && this.registerForm.valid) {
@@ -41,6 +46,7 @@ export class RegisterComponent {
           if (response) {
             alert('Usuario criado com sucesso');
             this.registerForm.reset;
+            this.router.navigate(['/login'])
           }
         },
         error: (error) => console.log(error)
