@@ -16,7 +16,11 @@
             <input matInput type="password" formControlName="password">
           </mat-form-field>
           <mat-card-actions>
-            <button mat-flat-button [disabled]="!this.loginForm.valid">Entrar</button>
+            @if (!this.loginForm.valid) {
+              <button mat-flat-button disabled class="btn-color-disabled">Entrar</button>
+            } @else {
+              <button mat-flat-button class="btn-color">Entrar</button>
+            }
             <p>Não possui uma conta? <a routerLink="/register">Registre-se!</a></p>
           </mat-card-actions>
         </form>

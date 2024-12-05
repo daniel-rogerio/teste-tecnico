@@ -32,10 +32,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RegisterComponent {
   private formsBuilder: FormBuilder = inject(FormBuilder);
   registerForm = this.formsBuilder.group({
-    name: ['', Validators.required],
+    name: ['', [Validators.required, Validators.pattern(/^[A-ZÀ-Ÿa-zà-ÿ]+(?: [A-ZÀ-Ÿa-zà-ÿ]+)+.*$/)]],
     birthDate: ['', Validators.required],
-    username: ['', Validators.required],
-    password: ['', Validators.required]
+    username: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.pattern(/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]]
   })
   private userService: UserService = inject(UserService);
   private router: Router = inject(Router);
@@ -61,7 +61,9 @@ export class RegisterComponent {
             this.router.navigate(['/login'])
           }
         },
-        error: () => this.openSnackBar('Erro ao efetuar o cadastro!', 'Fechar')
+        error: (error) => {
+          this.openSnackBar(error.error.message, 'Fechar')
+        }
       });
     }
   }

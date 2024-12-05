@@ -52,7 +52,6 @@ export class LoginComponent {
   }
 
   onSubmitLoginForm(): void {
-    console.log('Dados do formulário de login', this.loginForm.value);
     if (this.loginForm.value && this.loginForm.valid) {
       this.userService.authUser(this.loginForm.value as AuthRequets)
       .subscribe({
@@ -65,8 +64,7 @@ export class LoginComponent {
           }
         },
         error: (error) => {
-          console.log(error)
-          this.openSnackBar('Ocorreu um erro ao fazer do login. Verifique suas credenciais!', 'Fechar');
+          this.openSnackBar(error.error.message, 'Fechar');
         }
       })
     }
