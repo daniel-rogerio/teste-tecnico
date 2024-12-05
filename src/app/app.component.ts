@@ -5,10 +5,7 @@ import { LoadSpinnerComponent } from './components/load-spinner/load-spinner.com
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    LoadSpinnerComponent
-  ],
+  imports: [RouterOutlet, LoadSpinnerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
