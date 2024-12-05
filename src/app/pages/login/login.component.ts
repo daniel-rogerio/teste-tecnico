@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { UserService } from '../../services/user.service';
 import { AuthRequets } from '../../interfaces/user/AuthRequest';
 import { CookieService } from 'ngx-cookie-service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +40,15 @@ export class LoginComponent {
   private userService: UserService = inject(UserService);
   private cookieService: CookieService = inject(CookieService);
   private router: Router = inject(Router);
+  private snackbar: MatSnackBar = inject(MatSnackBar);
+
+  openSnackBar(message: string, action: string): void {
+    this.snackbar.open(message, action, {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right'
+    });
+  }
 
   onSubmitLoginForm(): void {
     console.log('Dados do formulário de login', this.loginForm.value);
@@ -50,9 +60,13 @@ export class LoginComponent {
             this.cookieService.set('USER_COOKIE', response?.token);
             this.loginForm.reset();
             this.router.navigate(['/home']);
+            this.openSnackBar('Seja bem-vindo!', 'Fechar');
           }
         },
-        error: (error) => console.log(error)
+        error: (error) => {
+          console.log(error)
+          this.openSnackBar('Ocorreu um erro ao fazer do login. Verifique suas credenciais!', 'Fechar');
+        }
       })
     }
   }

@@ -9,6 +9,7 @@ import { UserService } from '../../services/user.service';
 import { SingUpUserRequest } from '../../interfaces/user/SingUpUserRequest';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -37,6 +38,15 @@ export class RegisterComponent {
   })
   private userService: UserService = inject(UserService);
   private router: Router = inject(Router);
+  private snackbar: MatSnackBar = inject(MatSnackBar);
+
+  openSnackBar(message: string, action: string): void {
+    this.snackbar.open(message, action, {
+      duration: 3000,
+      verticalPosition: 'top',
+      horizontalPosition: 'right'
+    });
+  }
 
   onSubmitRegisterForm(): void {
     if (this.registerForm.value && this.registerForm.valid) {
@@ -44,12 +54,12 @@ export class RegisterComponent {
       .subscribe({
         next: (response) => {
           if (response) {
-            alert('Usuario criado com sucesso');
+            this.openSnackBar('Usuario criado com sucesso', 'Fechar');
             this.registerForm.reset;
             this.router.navigate(['/login'])
           }
         },
-        error: (error) => console.log(error)
+        error: () => this.openSnackBar('Erro ao efetuar o cadastro!', 'Fechar')
       });
     }
   }
