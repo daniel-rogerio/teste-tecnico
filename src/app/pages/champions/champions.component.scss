@@ -67,3 +67,9 @@ mat-card-actions {
 mat-paginator {
   background-color: rgb(244, 243, 246);
 }
+
+@media screen and (max-width: 500px) {
+  .table-container {
+    overflow-x: scroll;
+  }
+}
