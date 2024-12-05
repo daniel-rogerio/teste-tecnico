@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -10,6 +10,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ChampionsService } from '../../services/champions.service';
 
 export interface PeriodicElement {
   icon: number;
@@ -77,7 +78,22 @@ export function changePaginatorLanguage() {
   styleUrl: './champions.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChampionsComponent {
+export class ChampionsComponent implements OnInit {
+  private championsService: ChampionsService = inject(ChampionsService);
+  private championsList = [];
   displayedColumns: string[] = ['icon', 'name', 'title', 'info'];
   dataSource = ELEMENT_DATA;
+
+  ngOnInit(): void {
+    // this.getChampions()
+  }
+  getChampions(): void {
+    this.championsService.getAllChampions()
+    .subscribe({
+      next: (response) => {
+        // response && (this.championsList = response);
+        console.log(response)
+      }
+    })
+  }
 }
