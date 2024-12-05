@@ -1,12 +1,12 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { SingUpUserRequest } from '../../interfaces/user/SingUpUserRequest';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink, Router } from '@angular/router';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserService } from '../../services/user.service';
-import { SingUpUserRequest } from '../../interfaces/user/SingUpUserRequest';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -15,15 +15,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-register',
   standalone: true,
   imports: [
+    RouterLink,
+    ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    RouterLink,
-    ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
+  providers: [],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -49,6 +50,7 @@ export class RegisterComponent {
   }
 
   onSubmitRegisterForm(): void {
+    // console.log('Dados do formulário de registro:', this.registerForm.value)
     if (this.registerForm.value && this.registerForm.valid) {
       this.userService.registerUser(this.registerForm.value as SingUpUserRequest)
       .subscribe({
