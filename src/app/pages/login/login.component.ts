@@ -42,6 +42,7 @@ export class LoginComponent {
   private router: Router = inject(Router);
   private snackbar: MatSnackBar = inject(MatSnackBar);
 
+
   openSnackBar(message: string, action: string): void {
     this.snackbar.open(message, action, {
       duration: 3000,

@@ -1,19 +1,30 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChampionsService {
-  private http = inject(HttpClient);
-  private url = "https://lol2-4vk5.onrender.com";
+  private http: HttpClient = inject(HttpClient);
+  private url: string = "https://lol2-4vk5.onrender.com"
+  private cookieService: CookieService = inject(CookieService);
+  // private auth_token: string = this.cookieService.get('USER_COOKIE')
 
-  getAllChampions(): Observable<any> {
-    return this.http.get(`${this.url}/champions`);
+  getAllChampions(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}` 
+    })
+    return this.http.get(`${this.url}/champions`, {headers: headers});
   }
 
-  getChampionsById(id: string): Observable<any> {
-    return this.http.get(`${this.url}/champions/${id}`);
+  getChampionsById(id: string, token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}` 
+    })
+    return this.http.get(`${this.url}/champions/${id}`, {headers: headers})
   }
 }

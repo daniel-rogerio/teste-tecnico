@@ -10,11 +10,13 @@ import { UrlTree } from '@angular/router';
 export class AuthGuard {
   private userService: UserService = inject(UserService);
   private router: Router = inject(Router);
+
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!this.userService.userLogged()) {
       this.router.navigate(['/login']);
       return false;
     }
+
     this.userService.userLogged();
     return true;
   }

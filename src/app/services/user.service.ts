@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class UserService {
   private http: HttpClient = inject(HttpClient);
-  private url: string = 'https://lol2-4vk5.onrender.com';
+  private url: string = 'https://lol2-4vk5.onrender.com'
   private cookieService: CookieService = inject(CookieService);
 
   registerUser(requestDatas: SingUpUserRequest): Observable<SingUpUserResponse> {
@@ -25,6 +25,7 @@ export class UserService {
 
   userLogged(): boolean {
     const token: string = this.cookieService.get('USER_COOKIE');
+
     return token ? true : false;
   }
 }

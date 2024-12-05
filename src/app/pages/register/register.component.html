@@ -26,11 +26,11 @@
             <mat-label>Senha</mat-label>
             <input matInput type="password" formControlName="password">
           </mat-form-field>
+          <mat-card-actions>
+            <button mat-flat-button [disabled]="!this.registerForm.valid">Cadastrar</button>
+            <p>Já possui conta? <a routerLink="/login">Conecte-se!</a></p>
+          </mat-card-actions>
         </form>
-        <mat-card-actions>
-          <button mat-flat-button [disabled]="!this.registerForm.valid">Cadastrar</button>
-          <p>Já possui conta? <a routerLink="/login">Conecte-se!</a></p>
-        </mat-card-actions>
       </mat-card-content>
     </mat-card>
   </div>
