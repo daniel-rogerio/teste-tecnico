@@ -60,7 +60,7 @@ export class LoginComponent {
           if (response) {
             this.cookieService.set('USER_COOKIE', response?.token);
             this.loginForm.reset();
-            this.router.navigate(['/home']);
+            this.router.navigate(['/champions']);
             this.openSnackBar('Seja bem-vindo!', 'Fechar');
           }
         },
