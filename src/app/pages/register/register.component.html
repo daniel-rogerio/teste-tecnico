@@ -6,27 +6,27 @@
         <mat-card-title>Cadastrar novo usuário</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmitRegisterForm()">
           <mat-form-field>
             <mat-label>Nome completo</mat-label>
-            <input matInput>
+            <input matInput formControlName="name">
           </mat-form-field>
           <mat-form-field>
             <mat-label>Data de nascimento</mat-label>
-            <input matInput type="date">
+            <input matInput type="date" formControlName="birthDate">
           </mat-form-field>
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input matInput type="email">
+            <input matInput type="email" formControlName="username">
           </mat-form-field>
           <mat-form-field>
             <mat-label>Senha</mat-label>
-            <input matInput type="password">
+            <input matInput type="password" formControlName="password">
           </mat-form-field>
         </form>
         <mat-card-actions>
-          <button mat-flat-button>Cadastrar</button>
-          <p>Já possui conta? <a href="#">Conecte-se!</a></p>
+          <button mat-flat-button [disabled]="!this.registerForm.valid">Cadastrar</button>
+          <p>Já possui conta? <a routerLink="/login">Conecte-se!</a></p>
         </mat-card-actions>
       </mat-card-content>
     </mat-card>
