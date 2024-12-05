@@ -1,10 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { SingUpUserRequest } from '../models/interfaces/user/SingUpUserRequest';
+import { SingUpUserRequest } from '../interfaces/user/SingUpUserRequest';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SingUpUserResponse } from '../models/interfaces/user/SingUpUserResponse';
-import { AuthRequets } from '../models/interfaces/user/AuthRequests';
-import { AuthResponse } from '../models/interfaces/user/AuthResponse';
+import { SingUpUserResponse } from '../interfaces/user/SingUpUserResponse';
+import { AuthRequets } from '../interfaces/user/AuthRequest';
+import { AuthResponse } from '../interfaces/user/AuthResponse';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
