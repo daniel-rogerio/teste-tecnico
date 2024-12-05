@@ -59,3 +59,26 @@ img {
   overflow-x: hidden;
   padding: 8px;
 }
+
+@media screen and (max-width: 750px) {
+  mat-card-content {
+    overflow: scroll;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .champion-container {
+    min-width: 100%;
+    flex-wrap: wrap;
+  }
+
+  mat-card {
+    flex-grow: 1;
+  }
+  
+  .skins-container {
+    padding: 0;
+  }
+}
