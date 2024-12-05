@@ -1,0 +1,75 @@
+mat-card {
+  height: calc(100% - 96px);
+  margin: 16px;
+}
+
+mat-card-header {
+  margin-bottom: 16px;
+}
+
+mat-card-content {
+  max-height: calc(100% - 210px);
+}
+
+mat-form-field {
+  width: 300px;
+}
+
+.table-container {
+  width: 100%;
+  max-height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+  border-bottom: 1px solid rgb(116, 119, 127);
+}
+
+table {
+  max-width: 100%;
+  max-height: 100%;
+  
+}
+
+table th {
+  position: sticky;
+  top: 0;
+  border-bottom: none;
+  text-align: center;
+}
+
+table td {
+  text-align: center;
+}
+
+table td:last-child {
+  text-align: right;
+}
+
+.champion-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.info-button {
+  border: none;
+  background-color: rgb(250, 249, 253);
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+mat-paginator {
+  background-color: rgb(244, 243, 246);
+}
+
+@media screen and (max-width: 500px) {
+  .table-container {
+    overflow-x: scroll;
+  }
+}

@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container">
+  <div class="champion-container">
+    <!-- Card de detalhes do campeão -->
+    <mat-card class="champion-details" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>{{champions.id}}</mat-card-title>
+        <mat-card-subtitle>{{champions.title}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/' + championId + '_0.jpg'">
+      <mat-card-content>
+        <p>
+          {{champions.lore}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <!-- Card de skins do campeão -->
+    <mat-card class="champion-skins" appearance="outlined">
+      <mat-card-header class="skins-title">
+        <mat-card-title>Skins do Campeão</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="skins-content">
+        <div class="skins-container">
+          <div class="skin-card" *ngFor="let skin of skins | slice:1">
+            <app-card-champion-skin [data]="skin" (click)="openDialog(skin.splash, skin.name, '0ms', '0ms')"></app-card-champion-skin>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

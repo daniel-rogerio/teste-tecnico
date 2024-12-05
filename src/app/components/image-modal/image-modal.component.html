@@ -1,0 +1,11 @@
+<div class="container">
+  <h2 mat-dialog-title>{{ data.title }}</h2>
+  <mat-dialog-content>
+    <div class="img-container">
+      <img [src]="data.img" [alt]="data.title">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial>Fechar</button>
+  </mat-dialog-actions>
+</div>
