@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
   selector: 'app-header',
   standalone: true,
   imports: [
+    RouterModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
