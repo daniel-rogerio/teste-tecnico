@@ -27,7 +27,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providers: [],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class RegisterComponent {
   private formsBuilder: FormBuilder = inject(FormBuilder);
