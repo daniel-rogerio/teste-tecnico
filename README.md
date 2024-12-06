@@ -9,7 +9,7 @@ A aplicação abaixo, nomeada como "Champion Show", foi desenvolvida para soluci
  - Clonar (utilizando o GIT) o projeto para o seu ambiente de trabalho.
  - Acessar a pasta onde o projeto foi clonado.
  - Baixar as dependências do projeto utilizando: `npm install`
- - Executar o projeto usando um dos comandos a seguir: `npm start` ou `ng server`
+ - Executar o projeto usando um dos comandos a seguir: `npm start` ou `ng serve`
  - Abrir o local host (no navegador) na porta 4200, exemplo: `http://localhost:4200/`
 
 ### Versões utilizadas no desenvolvimento:
