@@ -20,10 +20,11 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
   readonly dialog = inject(MatDialog);
+
   private route: ActivatedRoute = inject(ActivatedRoute);
   private championsService: ChampionsService = inject(ChampionsService);
   private cookieService: CookieService = inject(CookieService);
@@ -33,15 +34,15 @@ export class DetailsComponent {
   championId = '';
 
   ngOnInit(): void {
-    const token: string = this.cookieService.get('USER_COOKIE')
+    const token: string = this.cookieService.get('USER_COOKIE');
     this.championId = this.route.snapshot.params['id'];
-    this.getChampionById(this.championId, token)
+    this.getChampionById(this.championId, token);
   }
 
-  getChampionById(id: string, token: string) {
+  getChampionById(id: string, token: string): void {
     this.championsService.getChampionsById(id, token).subscribe({
       next: (response) => {
-        response && (this.champions = response)
+        response && (this.champions = response);
         this.skins = response.skins || [];
       }
     })
