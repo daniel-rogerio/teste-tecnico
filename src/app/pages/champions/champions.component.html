@@ -49,6 +49,8 @@
       [length]="100"
       [pageSizeOptions]="[5, 10, 25, 100]"
       [pageSize]="25"
+      [pageIndex]="getPageIndex()"
+      (page)="onPaginateChange($event)"
       aria-label="Select page">
     </mat-paginator>
   </mat-card-actions>
