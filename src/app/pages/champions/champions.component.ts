@@ -86,4 +86,16 @@ export class ChampionsComponent implements OnInit {
       return champion.name.toLowerCase().includes(text.toLowerCase());
     });
   }
+
+  onPaginateChange(event: any): void {
+    localStorage.setItem('index', String(event.pageIndex));
+  }
+
+  getPageIndex(): string | number{
+    const index = String(localStorage.getItem('index'));
+    if (index) {
+      return index;
+    }
+    return 1;
+  }
 }

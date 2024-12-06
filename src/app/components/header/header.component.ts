@@ -6,6 +6,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-header',
@@ -21,11 +23,13 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  private cookieService: CookieService = inject(CookieService);
-  private router: Router = inject(Router);
+  readonly dialog: MatDialog = inject(MatDialog);
 
-  userLogout(): void {
-    this.cookieService.delete('USER_COOKIE');
-    void this.router.navigate(['/login']);
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(ConfirmModalComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 }
