@@ -59,7 +59,5 @@ export class DetailsComponent implements OnInit {
         img: skinSplash
       }
     });
-    console.log(skinSplash)
-    console.log(skinTitle)
   }
 }
